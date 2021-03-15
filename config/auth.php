@@ -46,6 +46,28 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'council' => [
+            'driver' => 'session',
+            'provider' => 'councils',
+        ],
+
+        'council-api' => [
+            'driver' => 'token',
+            'provider' => 'councils',
+            'hash' => false,
+        ],
+
+        'franchise' => [
+            'driver' => 'session',
+            'provider' => 'franchises',
+        ],
+
+        'franchise-api'=> [
+            'driver' => 'token',
+            'provider' => 'franchises',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -70,6 +92,17 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+
+        'councils' => [
+            'driver' => 'eloquent',
+            'model' => App\Council::class,
+        ],
+
+        'franchises' => [
+            'driver' => 'eloquent',
+            'model' => App\Franchise::class,
+        ],
+
 
         // 'users' => [
         //     'driver' => 'database',
@@ -98,6 +131,19 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+
+        'sellers' => [
+            
+           'provider' => 'sellers',            
+           'table' => 'password_resets',           
+           'expire' => 60,
+       ],
+
+        'councils' => [
+            'provider' => 'councils',
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
     ],
 

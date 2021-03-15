@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('council')->name('council.')->namespace('Council')->group(function(){
+    //Login Routes
+    
+    Route::get('/councilDashboard', 'Council/CouncilPageController@index')->name('admin.dashboard');
+
+    //Forgot Password Routes
+    
+  });
