@@ -14,10 +14,10 @@ class CreateCouncilsTable extends Migration
     public function up()
     {
         Schema::create('councils', function (Blueprint $table) {
-            $table->id();
-            $table->string('name',100);
+            $table->bigIncrements('id');
+            $table->string('name');
             $table->string('email')->unique();
-            $table->string('password',255);
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });

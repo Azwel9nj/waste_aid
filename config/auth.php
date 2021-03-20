@@ -95,12 +95,12 @@ return [
 
         'councils' => [
             'driver' => 'eloquent',
-            'model' => App\Council::class,
+            'model' => App\Models\Council::class,
         ],
 
         'franchises' => [
             'driver' => 'eloquent',
-            'model' => App\Franchise::class,
+            'model' => App\Models\Franchise::class,
         ],
 
 

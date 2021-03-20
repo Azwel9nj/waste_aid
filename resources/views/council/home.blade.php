@@ -7,7 +7,7 @@
             <div class="card-header"><h3>ADMIN DASHBOARD</h3></div>
 
                 <div class="card-body">
-                    <img style="width: 100%" src="/img/seljalandsfoss_waterfall_iceland_4k.jpg" />
+                    <!---<img style="width: 100%" src="/img/seljalandsfoss_waterfall_iceland_4k.jpg" />--->
 
                 <!---@if (session('status'))
                 <div class="alert alert-success">

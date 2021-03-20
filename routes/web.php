@@ -19,14 +19,23 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('council')->name('council.')->namespace('Council')->group(function(){
+Route::prefix('council')->namespace('App\Http\Controllers\Council')->group(function(){
     //Login Routes
-    
-    Route::get('/councilDashboard', 'Council/CouncilPageController@index')->name('admin.dashboard');
+    Route::group(['middleware' => 'guest'], function() {
+    Route::get('/login', 'Auth\CouncilLoginController@showCouncilLoginForm')->name('council.login');
+    Route::post('/login', 'Auth\CouncilLoginController@login')->name('council.login.submit');
+    });
+    Route::get('/councilDashboard', 'CouncilPageController@index')->name('council.home');
+    Route::get('/password/reset','Auth\ForgotPasswordController@index')->name('admin.password.request');
 
     //Forgot Password Routes
     
   });
+
+  Route::get('/mistake', 'PagesController@error');
