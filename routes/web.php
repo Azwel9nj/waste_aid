@@ -49,5 +49,7 @@ Route::prefix('franchise')->namespace('App\Http\Controllers\Franchise')->group(f
         Route::get('/login', 'Auth\FranchiseLoginController@showFranchiseLoginForm')->name('franchise.login');
         Route::post('/login', 'Auth\FranchiseLoginController@login')->name('franchise.login.submit');
     });
-
+    Route::get('/franchiseDashboard', 'FranchisePagesController@index')->name('franchise.home');
+    Route::get('/password/reset','Auth\ForgotPasswordController@index')->name('franchise.password.request');
+    Route::post('/logout', 'Auth\FranchiseLoginController@logout')->name('franchise.logout');
   });
