@@ -36,7 +36,7 @@ class CouncilLoginController extends Controller
             'email'=>$request->email,   
             'password'=>$request->password   
         ], $request->remember)){            
-            return redirect('council/councilDashboard')->with('success', 'Welcome');
+            return redirect('/')->with('success', 'Welcome');
    
         }
    
@@ -44,5 +44,12 @@ class CouncilLoginController extends Controller
         }
     }
 
+    public function logout(){
+   
+        Auth::guard('council')->logout();
+        //die;
+        return redirect('council/login');
+   
+    }
     
 }

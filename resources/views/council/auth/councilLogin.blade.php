@@ -1,6 +1,6 @@
-@extends('layouts.appFranchise')
-i am here
-@yield('content')
+@extends('layouts.appCouncil')
+
+@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -66,4 +66,5 @@ i am here
         </div>
     </div>
 </div>
+@endsection
 

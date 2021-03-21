@@ -25,17 +25,29 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//COUNCIL ROUTES
 Route::prefix('council')->namespace('App\Http\Controllers\Council')->group(function(){
     //Login Routes
     Route::group(['middleware' => 'guest'], function() {
-    Route::get('/login', 'Auth\CouncilLoginController@showCouncilLoginForm')->name('council.login');
-    Route::post('/login', 'Auth\CouncilLoginController@login')->name('council.login.submit');
+        Route::get('/login', 'Auth\CouncilLoginController@showCouncilLoginForm')->name('council.login');
+        Route::post('/login', 'Auth\CouncilLoginController@login')->name('council.login.submit');
     });
     Route::get('/councilDashboard', 'CouncilPageController@index')->name('council.home');
     Route::get('/password/reset','Auth\ForgotPasswordController@index')->name('admin.password.request');
+    Route::post('/logout', 'Auth\CouncilLoginController@logout')->name('council.logout');
 
     //Forgot Password Routes
     
-  });
+});
 
-  Route::get('/mistake', 'PagesController@error');
+Route::get('/mistake', 'PagesController@error');
+
+//FRANCHISE ROUTES
+Route::prefix('franchise')->namespace('App\Http\Controllers\Franchise')->group(function(){
+
+    Route::group(['middleware' => 'guest'], function() {
+        Route::get('/login', 'Auth\FranchiseLoginController@showFranchiseLoginForm')->name('franchise.login');
+        Route::post('/login', 'Auth\FranchiseLoginController@login')->name('franchise.login.submit');
+    });
+
+  });

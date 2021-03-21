@@ -133,9 +133,9 @@ return [
             'throttle' => 60,
         ],
 
-        'sellers' => [
+        'franchises' => [
             
-           'provider' => 'sellers',            
+           'provider' => 'franchises',            
            'table' => 'password_resets',           
            'expire' => 60,
        ],
