@@ -35,7 +35,7 @@ Route::prefix('council')->namespace('App\Http\Controllers\Council')->group(funct
     Route::get('/councilDashboard', 'CouncilPageController@index')->name('council.home');
     Route::get('/password/reset','Auth\ForgotPasswordController@index')->name('admin.password.request');
     Route::post('/logout', 'Auth\CouncilLoginController@logout')->name('council.logout');
-
+    
     //Forgot Password Routes
     
 });
@@ -52,4 +52,7 @@ Route::prefix('franchise')->namespace('App\Http\Controllers\Franchise')->group(f
     Route::get('/franchiseDashboard', 'FranchisePagesController@index')->name('franchise.home');
     Route::get('/password/reset','Auth\ForgotPasswordController@index')->name('franchise.password.request');
     Route::post('/logout', 'Auth\FranchiseLoginController@logout')->name('franchise.logout');
+    Route::get('registerFranchise', 'Auth\RegisterController@showRegistrationForm')->name('franchise.register');
+    Route::post('registerFranchise', 'Auth\RegisterController@register')->name('franchise.submitRegistration');
+
   });

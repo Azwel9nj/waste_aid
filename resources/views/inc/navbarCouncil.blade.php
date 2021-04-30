@@ -19,7 +19,7 @@
                         <a class="dropdown-item" href="">Zones<span class="sr-only">(current)</span></a>                        
                         <a class="dropdown-item" href="">Franchises<span class="sr-only">(current)</span></a>
                         <a class="dropdown-item" href="">Create Zone<span class="sr-only">(current)</span></a>
-                        <a class="dropdown-item" href="">Add Franchise<span class="sr-only">(current)</span></a>                        
+                        <a class="dropdown-item" href="{{ route('franchise.register')}}">Add Franchise<span class="sr-only">(current)</span></a>                        
                     </div>
                 </li>
                 <li class="nav-item active">

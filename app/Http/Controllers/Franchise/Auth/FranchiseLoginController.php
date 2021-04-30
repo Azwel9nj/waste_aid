@@ -30,10 +30,11 @@ class FranchiseLoginController extends Controller
         
         if ((Auth::guard('council')->check()) || (Auth::guard('web')->check())) {
             return redirect('/mistake')->with('error', 'Please logout first');
-        }else{        
+        }else{
+
         $this->validate($request, [
-        'email' => 'required|email',
-        'password'=>'required|min:6',
+            'email' => 'required|email',
+            'password'=>'required|min:6',
         ]);
 
         $email = $request->input('email'); 
@@ -55,6 +56,22 @@ class FranchiseLoginController extends Controller
    
         return redirect()->back()->withInput($request->only('email', 'remember'))->with('error','Invalid Credentials');
         }
+
         }
+
+        
+    }
+
+    public function logout(){
+   
+
+        Auth::guard('franchise')->logout();
+        //session()->flush();
+        //session()->regenerate();
+        //return redirect()->guest(route( 'admin.login' ));
+      
+   
+        return redirect('franchise/login');
+   
     }
 }

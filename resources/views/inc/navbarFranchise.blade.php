@@ -72,7 +72,7 @@
                         <a class="nav-link" href="{{ route('register') }}">Register</a>
                     </li>
                 @endif---->
-                @if(Auth::guard('council')->check())
+                @if(Auth::guard('franchise')->check())
                     <li class="nav-item dropdown">
                         <a id="councilDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::guard('franchise')->user()->name }} <span class="caret"></span>
