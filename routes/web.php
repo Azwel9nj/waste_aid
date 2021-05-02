@@ -25,6 +25,11 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::prefix('user')->namespace('App\Http\Controllers\Users')->group(function(){
+    Route::get('userSubscribtion', 'UserSubscriptionController@index')->name('userSubcription.index');
+    Route::get('userFranchises', 'UsersZoneFranchisesController@index')->name('userFranchises.index');
+    Route::get('userZones','UsersZoneController@index')->name('userZones.index');
+});
 //COUNCIL ROUTES
 Route::prefix('council')->namespace('App\Http\Controllers\Council')->group(function(){
     //Login Routes
