@@ -4,16 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 
-class Zones extends Model
+class FranchiseRatings extends Model
 {
     use HasFactory;
 
-    use Notifiable;
-    protected $table= "zones";
-
+    protected $table = 'franchise_ratings';
     protected $fillable = [
-        'zone', 'franchiseInZone'
+        'franchiseId','userId','rating','review'
     ];
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateZonesTable extends Migration
+class CreateFranchiseRatingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateZonesTable extends Migration
      */
     public function up()
     {
-        Schema::create('zones', function (Blueprint $table) {
+        Schema::create('franchise_ratings', function (Blueprint $table) {
             $table->id();
+            $table->integer("franchiseId");
+            $table->integer("userId");
+            $table->integer("rating");
+            $table->string("review");
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateZonesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zones');
+        Schema::dropIfExists('franchise_ratings');
     }
 }

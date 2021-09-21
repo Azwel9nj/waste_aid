@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Council;
 use Illuminate\Database\Seeder;
+use App\Models\Council;
 
-class CouncilTableSeeder extends Seeder
+class CouncilSeeder extends Seeder
 {
     /**
      * Run the database seeds.
