@@ -8,3 +8,5 @@ install livewire and jetstream: "https://www.positronx.io/build-laravel-livewire
 free softwares: "https://www.youtube.com/watch?v=PRbMfZKuRUo"
 
 laravel livewire documentation : "https://github.com/livewire/livewire"
+
+remove git origin : "git remote rm origin"
