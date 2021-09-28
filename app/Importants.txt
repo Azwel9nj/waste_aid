@@ -1,0 +1,10 @@
+rating system: "https://devdojo.com/bobbyiliev/how-to-build-a-simple-reviews-and-rating-system-with-livewire-and-jetstream"
+
+generate env file : [cp .env.example .env,
+                    php artisan key:generate]
+
+install livewire and jetstream: "https://www.positronx.io/build-laravel-livewire-crud-application-using-jetstream/"
+
+free softwares: "https://www.youtube.com/watch?v=PRbMfZKuRUo"
+
+laravel livewire documentation : "https://github.com/livewire/livewire"
