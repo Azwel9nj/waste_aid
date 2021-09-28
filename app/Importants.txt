@@ -10,3 +10,7 @@ free softwares: "https://www.youtube.com/watch?v=PRbMfZKuRUo"
 laravel livewire documentation : "https://github.com/livewire/livewire"
 
 remove git origin : "git remote rm origin"
+
+get old git logs: "git log"
+
+reset project: "git reset --hard (log code)"
