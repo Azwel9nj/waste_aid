@@ -30,7 +30,7 @@ Route::prefix('user')->namespace('App\Http\Controllers\Users')->group(function (
     Route::get('userFranchises', 'UsersZoneFranchisesController@index')->name('userFranchises.index');
     Route::get('userZones', 'UsersZoneController@index')->name('userZones.index');
     Route::post('userStoreZone', 'UsersZoneController@storeZone')->name('userZones.storeZone');
-
+    Route::resource('viewFranchisesInTheZone','UsersFranchisesInTheZoneController');
 
 });
 //COUNCIL ROUTES

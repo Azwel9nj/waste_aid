@@ -13,9 +13,9 @@ class UsersZoneFranchisesController extends Controller
     public function index(){
         $user = auth()->user()->id;
         try{
-            $theUsersZone = Controller::getUserZoneId($user);
+            $theUsersZone = $this->getUsersZoneId($user);
             $theUsersZoneId = $theUsersZone[0]->zoneId;
-            $franshisesInGivenZone = Controller::getFranchisesInZone($theUsersZoneId);
+            $franshisesInGivenZone = $this->getFranchisesInZone($theUsersZoneId);
             $zones = Zone::all();
             $zones = Zone::orderBy('created_at', 'desc')->paginate(10);
             return view('user.usersZoneFranchises.index')->with('frans', $franshisesInGivenZone)->with('zones', $zones);

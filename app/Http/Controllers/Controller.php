@@ -35,6 +35,18 @@ class Controller extends BaseController
         return $subscription;
     }
 
+    public function getFranchisesInZone($theUsersZoneId){
+
+        $franshisesInGivenZone = DB::table('sellers')
+        ->join('franchise_zones','sellers.id','=','franchise_zones.fran_id')
+        ->where('franchise_zones.zone_id','=',$theUsersZoneId)
+        ->where('sellers.active','=','1')
+        ->select('sellers.name', 'sellers.id')
+        ->paginate(15);
+
+        return $franshisesInGivenZone;
+    }    
+
     public function getUsersZoneId($userId)
     {
         $zones = DB::table('user_zones')
@@ -45,17 +57,7 @@ class Controller extends BaseController
         return $zones;
     }
 
-    public function getFranchisesInZone($theUsersZoneId)
-    {
-        $franshisesInGivenZone = DB::table('franchises')
-            ->join('franchise_zones', 'franchises.id', '=', 'franchise_zones.franchiseId')
-            ->where('franchise_zones.zoneId', '=', $theUsersZoneId)
-            ->where('franchises.active', '=', '1')
-            ->select('franchises.name', 'franchises.id')
-            ->paginate(15);
-
-        return $franshisesInGivenZone;
-    }
+    
 
     public function getFranchiseId($userId)
     {

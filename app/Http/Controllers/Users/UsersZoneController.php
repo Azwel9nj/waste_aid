@@ -46,14 +46,13 @@ class UsersZoneController extends Controller
                 $usersZone = $this->getUsersZoneId($user);           
                 $usersZoneId = $usersZone[0]->id;
                 $this->update($request,$usersZoneId);
-                return redirect('/view_frans')->with('success', 'Zone Updated, You may proceed to select your Franchise');
+                return redirect('/user/viewFranchisesInTheZone')->with('success', 'Zone Updated, You may proceed to select your Franchise');
             }else{
                 $createNewUsersZone = new UserZone;
                 $createNewUsersZone->userId = auth()->user()->id;
                 $createNewUsersZone->zoneId = $request->input('zoneId');
                 $createNewUsersZone->save();
-
-                return redirect('/view_frans')->with('success','Zone Selected, You may proceed to select your Franchise');
+                return redirect('/user/viewFranchisesInTheZone')->with('success','Zone Selected, You may proceed to select your Franchise');
             }
         /*}catch(Exception $e){
             return 'there are no zones';
