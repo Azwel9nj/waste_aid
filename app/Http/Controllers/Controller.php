@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Zone;
 use App\Models\Zones;
 use Exception;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -34,7 +35,7 @@ class Controller extends BaseController
         return $subscription;
     }
 
-    public function getUserZoneId($userId)
+    public function getUsersZoneId($userId)
     {
         $zones = DB::table('user_zones')
             ->join('zones', 'zones.id', '=', 'user_zones.zoneId')
@@ -112,8 +113,16 @@ class Controller extends BaseController
 
     public function zonesIndexPageLoader()
     {
-        $zones = Zones::all();
-        $zones = Zones::orderBy('created_at', 'desc')->paginate(10);
+        $zones = Zone::all();
+        $zones = Zone::orderBy('created_at', 'desc')->paginate(10);
         return view('zones.index')->with('zones', $zones);
     }
+
+    public function checkIfUserIsSubscribedToAZone($userId){
+        $checkIfUserIsSubscibedToAZone = DB::table('user_zones')
+                                    ->where('userId',$userId)                    
+                                    ->count();
+        return $checkIfUserIsSubscibedToAZone;
+    }
+    
 }

@@ -40,12 +40,12 @@ class UsersZoneController extends Controller
         //try{
             $zone = $request->input('zoneId');
             $user = auth()->user()->id;
-            $checkIfUserIsSubscibedToAZone = $this->checkIfUserIsSubscribedToAFranchise($user);
+            $checkIfUserIsSubscibedToAZone = $this->checkIfUserIsSubscribedToAZone($user);
 
-            if($checkIfUserIsSubscibedToAZone < 0){
+            if($checkIfUserIsSubscibedToAZone > 0){
                 $usersZone = $this->getUsersZoneId($user);           
                 $usersZoneId = $usersZone[0]->id;
-                UsersZoneController::update($request,$usersZoneId);
+                $this->update($request,$usersZoneId);
                 return redirect('/view_frans')->with('success', 'Zone Updated, You may proceed to select your Franchise');
             }else{
                 $createNewUsersZone = new UserZone;
@@ -63,11 +63,11 @@ class UsersZoneController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'zoneid' => 'required'
+            'zoneId' => 'required'
         ]);
         $editNewUsersZone= UserZone::find($id);
         $editNewUsersZone->userId = auth()->user()->id;
-        $editNewUsersZone->zoneId = $request->input('zoneid');
+        $editNewUsersZone->zoneId = $request->input('zoneId');
         $editNewUsersZone->save();
         
     }
