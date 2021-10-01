@@ -14,3 +14,5 @@ remove git origin : "git remote rm origin"
 get old git logs: "git log"
 
 reset project: "git reset --hard (log code)"
+
+testing testing
