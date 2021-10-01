@@ -20,7 +20,17 @@ class UsersFranchisesInTheZoneController extends Controller
      
     public function index()
     {
-            
+        $user = auth()->user()->id;
+        try{
+            $theUsersZone = $this->getUsersZoneId($user);
+            $theUsersZoneId = $theUsersZone[0]->zoneId;
+            $franshisesInGivenZone = $this->getFranchisesInZone($theUsersZoneId);
+            $zones = Zone::all();
+            $zones = Zone::orderBy('created_at', 'desc')->paginate(10);
+            return view('user.usersZoneFranchises.index')->with('franshisesInGivenZone', $franshisesInGivenZone)->with('zones', $zones);
+        }catch(Exception $e){
+            return Redirect::back()->with('error', 'You Must Select a Zone first');           
+        }  
     }
 
 

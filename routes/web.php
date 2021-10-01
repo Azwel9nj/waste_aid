@@ -31,7 +31,7 @@ Route::prefix('user')->namespace('App\Http\Controllers\Users')->group(function (
     Route::get('userZones', 'UsersZoneController@index')->name('userZones.index');
     Route::post('userStoreZone', 'UsersZoneController@storeZone')->name('userZones.storeZone');
     Route::resource('viewFranchisesInTheZone','UsersFranchisesInTheZoneController');
-
+    Route::get('showUserFranchiseInZone', 'UsersFranchisesInTheZoneController@show')->name('showUserFranchiseInZone.show');
 });
 //COUNCIL ROUTES
 Route::prefix('council')->namespace('App\Http\Controllers\Council')->group(function () {

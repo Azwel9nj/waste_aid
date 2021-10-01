@@ -37,11 +37,11 @@ class Controller extends BaseController
 
     public function getFranchisesInZone($theUsersZoneId){
 
-        $franshisesInGivenZone = DB::table('sellers')
-        ->join('franchise_zones','sellers.id','=','franchise_zones.fran_id')
-        ->where('franchise_zones.zone_id','=',$theUsersZoneId)
-        ->where('sellers.active','=','1')
-        ->select('sellers.name', 'sellers.id')
+        $franshisesInGivenZone = DB::table('franchises')
+        ->join('franchise_zones','franchises.id','=','franchise_zones.franchiseId')
+        ->where('franchise_zones.zoneId','=',$theUsersZoneId)
+        ->where('franchises.active','=','1')
+        ->select('franchises.name', 'franchises.id')
         ->paginate(15);
 
         return $franshisesInGivenZone;
