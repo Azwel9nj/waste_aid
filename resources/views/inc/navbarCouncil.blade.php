@@ -15,12 +15,12 @@
                     <a class="nav-link" href="{{ url('/') }}">DashBoard <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ route('council.viewFranchises')}}">Franchise <span
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Franchise <span
                             class="sr-only">(current)</span></a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('council.viewZones') }}">Zones<span
                                 class="sr-only">(current)</span></a>
-                        <a class="dropdown-item" href="">Franchises<span class="sr-only">(current)</span></a>
+                        <a class="dropdown-item" href="{{ route('council.viewFranchises')}}">Franchises<span class="sr-only">(current)</span></a>
                         <a class="dropdown-item" href="{{ route('council.createZones') }}">Create Zone<span
                                 class="sr-only">(current)</span></a>
                         <a class="dropdown-item" href="{{ route('franchise.register') }}">Add Franchise<span

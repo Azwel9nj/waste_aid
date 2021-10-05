@@ -46,6 +46,7 @@ Route::prefix('council')->namespace('App\Http\Controllers\Council')->group(funct
     Route::get('zone', 'ZoneController@index')->name('council.viewZones');
     Route::post('zoneStore', 'ZoneController@store')->name('council.storeZones');
     Route::get('zoneCreate', 'ZoneController@create')->name('council.createZones');
+    Route::get('viewFranchises', 'FranchiseZoneController@index')->name('council.viewFranchises');
     //Forgot Password Routes
 });
 

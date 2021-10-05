@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Council;
 
 use App\Http\Controllers\Controller;
+use App\Models\Franchise;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FranchiseZoneController extends Controller
 {
@@ -14,7 +16,33 @@ class FranchiseZoneController extends Controller
      */
     public function index()
     {
-        //
+        $franchise = Franchise::all();
+        
+    }
+
+    private function getFranchisesWithOrWithouZone(){
+
+        $franchises = DB::table('franchises')
+        ->join('franchise_zones','franchiseId','=','franchises.id')
+        ->join('');
+    }
+
+    private function getFranchisesWithZone($zone){
+        $frans  = DB::table('sellers')
+            ->join('franchise_zones','sellers.id','=','franchise_zones.fran_id')
+            ->join('zones','franchise_zones.zone_id','=','zones.id')
+            ->where('sellers.zone','=', $zone)
+            ->select('sellers.*','zones.zone')
+            ->paginate(10);            
+        return $frans;
+    }
+
+    private function getFranchiseWithOutZone($nozone){
+        $nofrans = DB::table('sellers')
+            ->where('sellers.zone','=', $nozone)
+            ->select('sellers.*')
+            ->paginate(10);
+        return $nofrans;
     }
 
     /**

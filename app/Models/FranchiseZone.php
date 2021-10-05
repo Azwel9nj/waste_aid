@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class FranchiseZone extends Model
 {
     use HasFactory;
+
+    protected $table = 'franchise_zones';
+    protected $fillable = [
+        'zoneId','franchiseId'
+    ];
 }
