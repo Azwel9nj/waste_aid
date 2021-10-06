@@ -23,8 +23,12 @@ class FranchiseZoneController extends Controller
     private function getFranchisesWithOrWithouZone(){
 
         $franchises = DB::table('franchises')
-        ->join('franchise_zones','franchiseId','=','franchises.id')
-        ->join('');
+            ->join('franchise_zones','franchiseId','=','franchises.id')
+            ->join('zones','franchise_zones.zoneId','=','zones.id')
+            ->select('franchises.name','franchises.active','franchises.phone','franchises.collection', DB::raw('(CASE WHEN COUNT(franchise_zones.zoneId) = 0 THEN NONE ELSE ASSIGNED )'))
+            ->paginate(15);
+
+        return $franchises;
     }
 
     private function getFranchisesWithZone($zone){
