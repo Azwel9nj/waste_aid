@@ -67,7 +67,6 @@ class UsersZoneController extends Controller
         $editNewUsersZone= UserZone::find($id);
         $editNewUsersZone->userId = auth()->user()->id;
         $editNewUsersZone->zoneId = $request->input('zoneId');
-        $editNewUsersZone->save();
-        
+        $editNewUsersZone->save();        
     }
 }
